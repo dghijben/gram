@@ -17,11 +17,11 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">TokyoGram</a>
+	      <a class="navbar-brand" href="/">TokyoGram</a>
 	    </div>
 	    <div class="navbar-collapse collapse">
-	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="#">Home</a></li>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li class="active"><a href="/">Home</a></li>
 	        <li><a href="#about">About</a></li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
@@ -34,30 +34,33 @@
 	            <li><a href="#">Separated link 2</a></li>
 	          </ul>
 	        </li>
-	      </ul>
-		  <ul class="nav navbar-nav navbar-right">
+			<li>
 				<% if user_signed_in? %>
-			      <p class="navbar-text">
+				<p class="navbar-text">
 				  Logged in as <strong><%= current_user.email %></strong>.
 			      <%= link_to 'Edit profile', edit_user_registration_path %> |
 			      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-				  </p>
-			    <% else %>
-			      <p class="navbar-text">
-			      <%= link_to "Sign up", new_user_registration_path %> |
-			      <%= link_to "Login", new_user_session_path %>
-			    <% end %>
-			      </p>
-		  </ul>
+				</p>
+				<% end %>
+			</li>
+	      </ul>
 	    </div><!--/.nav-collapse -->
 	  </div>
 	</div>
-	
+	<div class="container">
+
  	<% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, id: "flash_#{name}" %>
+    <%= content_tag :div, msg, id: "flash_#{name}", class: "alert alert-info" %>
   	<% end %>
 
+	</div>
 <%= yield %>
+
+<div class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+	<small class="navbar-text pull-right">&copy; 2013<small>
+  </div>
+</div>
 
 </body>
 </html>
