@@ -1,0 +1,31 @@
+<div class="container">
+<%= form_for @photo, :html => {:multipart => true} do |f| %>
+  <ul>
+  <% @photo.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+
+  <div id="test">
+	<div class="wrapper"><p>
+      <%= f.file_field :image %></p>
+ 	</div>
+	<button class="button-primary">Select a file</button>
+  </div>
+
+
+  <div class="input-group">
+	<p>or</p>
+ 	<p>
+      <%= f.text_field :remote_image_url, class: "form-control", placeholder: "Paste an Image URL" %>
+	</p>
+	<p>
+      <%= f.text_field :title, class: "form-control", placeholder: "Add title" %>
+  	</p>
+  	<p>
+      <%= link_to "Back", photos_path, class: "btn btn-default" %> <%= f.submit "Upload", class: "btn btn-primary" %> 
+  	</p>
+  </div>
+<% end %>
+<div>
+

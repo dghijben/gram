@@ -1,0 +1,9 @@
+<div class="container">
+<div class="col-xs-12">
+<%= image_tag @photo.image_url.to_s %>
+<h2><%= @photo.title %></h2>
+<p><%= link_to "back", photos_path, class: "btn btn-default" %>
+<%= link_to "delete", photo_path(@photo), method: :delete, class: "btn btn-default" %>
+</p>
+</div>
+</div>
