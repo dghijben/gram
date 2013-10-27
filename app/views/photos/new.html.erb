@@ -1,4 +1,5 @@
 <div class="container">
+<div class="col-sm-6 col-sm-offset-3">
 <%= form_for @photo, :html => {:multipart => true} do |f| %>
   <ul>
   <% @photo.errors.full_messages.each do |error| %>
@@ -14,7 +15,7 @@
   </div>
 
 
-  <div class="input-group">
+  <div class="form-group">
 	<p>or</p>
  	<p>
       <%= f.text_field :remote_image_url, class: "form-control", placeholder: "Paste an Image URL" %>
@@ -22,10 +23,14 @@
 	<p>
       <%= f.text_field :title, class: "form-control", placeholder: "Add title" %>
   	</p>
+
+
   	<p>
       <%= link_to "Back", photos_path, class: "btn btn-default" %> <%= f.submit "Upload", class: "btn btn-primary" %> 
   	</p>
+
   </div>
 <% end %>
+</div>
 <div>
 
