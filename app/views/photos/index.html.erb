@@ -8,12 +8,8 @@
  	<div class="row"> 
   	<% group.each do |photo| %>
 	<div class="col-sm-4">
-      
-    <%= image_tag photo.image_url.to_s, class: "img-responsive" if photo %>
-    	
-	<%= link_to "details", photo_path(photo), class: "panel-body pull-right" if photo %>
-		
-      
+    <%= link_to image_tag(photo.image_url.to_s, class: "img-responsive"), photo_path(photo) if photo %>
+	  <br />
 	</div>
   	<% end %>
  	</div>

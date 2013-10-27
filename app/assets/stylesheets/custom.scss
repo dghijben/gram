@@ -44,3 +44,10 @@ body {
 .button-primary {
   @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
 }
+
+// Default navbar
+.navbar-default {
+  background-color: $navbar-default-bg;
+  border-color: $navbar-default-border;
+  opacity: 0.98;
+}
