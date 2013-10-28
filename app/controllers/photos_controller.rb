@@ -12,15 +12,19 @@ class PhotosController < ApplicationController
   end
   
   def create
-    @photo = Photo.new(photo_params)
-    @photo.save
-    redirect_to photos_path
+    @photo = current_user.photos.build(photo_params)
+    if @photo.save
+      flash[:success] = "Photo successfully uploaded!"
+      redirect_to photos_path
+    else
+      render photos_path
+    end
   end
   
   def destroy
-    @photo = Photo.destroy(params[:id])
-    redirect_to photos_path
-  end
+      @photo = Photo.destroy(params[:id])
+      redirect_to photos_path
+    end
   
   def photo_params
       params.require(:photo).permit(:title, :image, :user_id, :remote_image_url)
